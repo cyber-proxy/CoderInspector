@@ -2,15 +2,19 @@
   <id>org.android.developer.coder.inspector.plugin.id</id>
   <name>Coder Inspector For Inner</name>
   <version>1.0</version>
-  <vendor email="LC@developer.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="LC@developer.com" url="http://www.developer.com">developer</vendor>
 
   <description>
-   1、 检测加密文本是否在使用的地方解密；2、检测format调用的地方是否存在崩溃的风险。3、检测代码编写是否符合规范。
+    <![CDATA[
+   功能如下：<br>
+      <em>1、 检测加密文本是否在使用的地方解密；2、检测format调用的地方是否存在崩溃的风险。3、检测代码编写是否符合规范。</em>
+    ]]>
   </description>
 
-  <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+  <change-notes>
+    <![CDATA[
+      更改如下：aaaaaaaaaaaaaa<br>
+      <em>1、实现加密文本的解密检测。2、待添加。</em>
     ]]>
   </change-notes>
 
@@ -29,6 +33,9 @@
 
   <actions>
     <!-- Add your actions here -->
+    <action id="org.android.developer.Inspector.A" class="org.android.developer.aaaaa" text="Inspect Errors" description="aaaa">
+      <add-to-group group-id="CodeMenu" anchor="after" relative-to-action="Generate"/>
+    </action>
   </actions>
 
 </idea-plugin>
