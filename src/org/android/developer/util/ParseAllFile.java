@@ -76,8 +76,9 @@ public class ParseAllFile {
      * @param element
      * @return
      */
-    public static void findUsage(PsiField element, Project project) {
+    public static List<PsiElement> findUsage(PsiField element, Project project) {
         LogUtil.log("findUsages for: " + element.getText());
+        List<PsiElement> psiElements = new ArrayList<>();
 //    Module mod = ModuleUtilCore.findModuleForPsiElement( element );
 //    if( mod == null )
 //    {
@@ -97,9 +98,9 @@ public class ParseAllFile {
         for (PsiReference reference : all) {
             LogUtil.log("\t reference as belows: ->"
                             + reference.getElement().getText() // 引用内容
-                            + " \n" + reference.getElement().getParent().getText()
+//                            + " \n" + reference.getElement().getParent().getText()
                             + " \n" + reference.getElement().getParent().getParent().getText()
-                            + " \n" + reference.getElement().getParent().getParent().getParent().getText()
+//                            + " \n" + reference.getElement().getParent().getParent().getParent().getText()
 //                    + " " + reference.resolve().getParent().getText()
 //                    + " " + reference.resolve().getText() // 定义的内容
 //                    + " " + reference.getCanonicalText() // 引用的内容
@@ -108,7 +109,11 @@ public class ParseAllFile {
 //                    + " " + reference.isSoft()
 //                    + " " + reference.getVariants().length
             );
+            PsiElement parent = reference.getElement().getParent().getParent();
+
+            psiElements.add(parent);
         }
+        return psiElements;
 //
 //        PsiVariable parentOfType = PsiTreeUtil.getParentOfType(element, PsiVariable.class);
 //        Query<PsiReference> searchAll = ReferencesSearch.search(parentOfType);

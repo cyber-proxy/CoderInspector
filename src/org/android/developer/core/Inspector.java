@@ -25,15 +25,15 @@ import java.util.Objects;
  * @des
  */
 public class Inspector {
-    List<PsiField> fields =  new ArrayList<>();
+    List<PsiField> fields = new ArrayList<>();
     List<UsageInfo> usageInfoList = new ArrayList<>();
 
     public void execute(PsiFile psiFile, Project prj) {
         fields.addAll(ParseAllFile.gerVariablesList(psiFile));
-        for (PsiField psiField : fields){
+        for (PsiField psiField : fields) {
             LogUtil.log("getReference for :" + psiField.getText());
 
-            ParseAllFile.findUsage(psiField, prj);
+            List<PsiElement> list = ParseAllFile.findUsage(psiField, prj);
 //            if (Objects.nonNull(psiField.getReference())){
 //                PsiElement element = psiField.getReference().resolve();
 //                LogUtil.log("getReference->" + element.toString());
@@ -42,8 +42,10 @@ public class Inspector {
 //            }
         }
     }
+
     /**
      * 遍历工程，获取各个类文件
+     *
      * @param project
      */
     private void parsePrj(Project project) {
@@ -72,7 +74,7 @@ public class Inspector {
 
     private void parseFile(PsiClass psiClass, Project project) {
         LogUtil.log("parse->" + psiClass.getName());
-        for (PsiField field : fields){
+        for (PsiField field : fields) {
 //            ParseAllFile.findUsage(field, project);
         }
     }
