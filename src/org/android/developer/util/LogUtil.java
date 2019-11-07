@@ -8,7 +8,7 @@ import com.intellij.openapi.diagnostic.Logger;
  */
 public class LogUtil {
     public static void log(String log){
-        Logger.getInstance("CoderInspector").info(log);
+        Logger.getInstance("CoderInspector:::::::::::::::::::::").info(log);
 
     }
 }

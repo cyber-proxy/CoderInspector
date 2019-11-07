@@ -19,7 +19,7 @@ public class NotifyUtils {
                 .createHtmlTextBalloonBuilder(text, type, null)
                 .setFadeoutTime(7500)
                 .createBalloon()
-                .show(RelativePoint.getCenterOf(statusBar.getComponent()), Balloon.Position.atRight);
+                .show(RelativePoint.getCenterOf(statusBar.getComponent()), Balloon.Position.above);
     }
 
     public static void showError(Project project, String msg) {

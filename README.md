@@ -1,6 +1,13 @@
-# CoderInspector
-Coder inspector for android studio same as the "Alibaba Java Coding Guidelines"
-## 检测内容
-* 检测加密内容在使用的地方是否已经解密；
-* 检测format是否使用正确，检测范围既包括java代码中的format，也包括xml文件中的字符串内容；
-* 检测代码编写是否符合规范，代码规范参考"Alibaba Java"。
+# Android Studio辅助开发插件
+## 检测代码问题
+### 解密检测
+ 目前代码中用到了加密字符串。需要检测在引用的地方有没有对其解密。
+ 其步骤如下：
+ * 获取当前类的成员列表。
+ * 根据获取的列表，分别在工程中查找其引用。
+ * 查看引用的地方有无解密。
+ * 对没有解密的地方，弹出对话框，提示错误。
+### format检测
+ format错误，会导致程序崩溃，且错我不容易被发现。
+ * 检测翻译错误
+ * 检测代码里面的format格式错误
