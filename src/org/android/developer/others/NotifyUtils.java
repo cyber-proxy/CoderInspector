@@ -1,4 +1,4 @@
-package org.android.developer;
+package org.android.developer.others;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.MessageType;

@@ -1,4 +1,4 @@
-package org.android.developer;
+package org.android.developer.others;
 
 /**
  * @author LC

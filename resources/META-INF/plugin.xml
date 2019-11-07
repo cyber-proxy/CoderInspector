@@ -5,17 +5,12 @@
   <vendor email="LC@developer.com" url="http://www.developer.com">developer</vendor>
 
   <description>
-    <![CDATA[
-   功能如下：<br>
-      <em>1、 检测加密文本是否在使用的地方解密；2、检测format调用的地方是否存在崩溃的风险。3、检测代码编写是否符合规范。</em>
-    ]]>
+    1、 检测加密文本是否在使用的地方解密；2、检测format调用的地方是否存在崩溃的风险。3、检测代码编写是否符合规范。
+    4、在代码中必须要解密的字符串的定义，需要以decrypt_以前缀命名。
   </description>
 
   <change-notes>
-    <![CDATA[
-      更改如下：aaaaaaaaaaaaaa<br>
-      <em>1、实现加密文本的解密检测。2、待添加。</em>
-    ]]>
+    1、 检测加密文本是否在使用的地方解密；2、检测format调用的地方是否存在崩溃的风险。3、检测代码编写是否符合规范。
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
@@ -33,7 +28,7 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="org.android.developer.Inspector.A" class="org.android.developer.aaaaa" text="Inspect Errors" description="aaaa">
+    <action id="org.android.developer.MainEntry" class="org.android.developer.MainEntry" text="代码检测" description="检查代码中的错误">
       <add-to-group group-id="CodeMenu" anchor="after" relative-to-action="Generate"/>
     </action>
   </actions>

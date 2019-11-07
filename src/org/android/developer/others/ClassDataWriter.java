@@ -1,4 +1,4 @@
-package org.android.developer;
+package org.android.developer.others;
 
 import com.intellij.openapi.application.Result;
 import com.intellij.openapi.command.WriteCommandAction;

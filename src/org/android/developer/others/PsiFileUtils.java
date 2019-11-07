@@ -1,4 +1,4 @@
-package org.android.developer;
+package org.android.developer.others;
 
 import com.intellij.openapi.editor.CaretModel;
 import com.intellij.openapi.editor.Editor;
@@ -14,6 +14,7 @@ import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.PsiShortNamesCache;
 import com.intellij.psi.xml.XmlAttribute;
 import com.intellij.psi.xml.XmlTag;
+import org.android.developer.util.LogUtil;
 
 import java.util.ArrayList;
 
@@ -94,6 +95,7 @@ public class PsiFileUtils {
         GlobalSearchScope globalSearchScope = GlobalSearchScope.fileScope(classFile);
         String fullName = classFile.getName();
         String className = fullName.split("\\.")[0];
+        LogUtil.log("fullName" + fullName + " className" + className);
         return PsiShortNamesCache.getInstance(classFile.getProject()).getClassesByName(className, globalSearchScope)[0];
     }
 }
