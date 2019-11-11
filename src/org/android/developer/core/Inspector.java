@@ -23,10 +23,12 @@ import java.util.Objects;
 /**
  * @author LC
  * @des
+ * @Reference https://blog.csdn.net/nanjizhiyin/article/details/89452297
  */
 public class Inspector {
     List<PsiField> fields = new ArrayList<>();
     List<UsageInfo> usageInfoList = new ArrayList<>();
+    public static String mDecryptFunction;
 
     public void execute(PsiFile psiFile, Project prj) {
         fields.addAll(ParseAllFile.gerVariablesList(psiFile));
@@ -34,12 +36,11 @@ public class Inspector {
             LogUtil.log("getReference for :" + psiField.getText());
 
             List<PsiElement> list = ParseAllFile.findUsage(psiField, prj);
-//            if (Objects.nonNull(psiField.getReference())){
-//                PsiElement element = psiField.getReference().resolve();
-//                LogUtil.log("getReference->" + element.toString());
-//            }else {
-//                LogUtil.log("getReference->" + " no reference");
-//            }
+            for (PsiElement psiElement : list){
+                if (!psiElement.getText().startsWith(mDecryptFunction)){
+                    LogUtil.log("found errors: " + psiElement.getc());
+                }
+            }
         }
     }
 

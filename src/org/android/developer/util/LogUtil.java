@@ -9,6 +9,6 @@ import com.intellij.openapi.diagnostic.Logger;
 public class LogUtil {
     public static void log(String log){
         Logger.getInstance("CoderInspector:::::::::::::::::::::").info(log);
-
+        System.out.println(log);
     }
 }

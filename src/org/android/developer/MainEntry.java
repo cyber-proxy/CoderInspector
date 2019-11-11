@@ -26,11 +26,10 @@ public class MainEntry extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         LogUtil.log("actionPerformed");
-        new SampleDialogWrapper().showAndGet();
         Editor editor = anActionEvent.getData(DataKeys.EDITOR);
         PsiFile psiFile = anActionEvent.getData(DataKeys.PSI_FILE);
         Project prj = anActionEvent.getData(DataKeys.PROJECT);
-        new Inspector().execute(psiFile, prj);
+        new SampleDialogWrapper(psiFile, prj).showAndGet();
 //
         System.out.println("" + psiFile);
         PsiElement psiElement = PsiFileUtils.getPsiElementByEditor(editor, psiFile);

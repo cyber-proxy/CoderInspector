@@ -96,10 +96,10 @@ public class ParseAllFile {
         Collection<PsiReference> all = search.findAll();
         LogUtil.log("reference amount: " + all.size());
         for (PsiReference reference : all) {
-            LogUtil.log("\t reference as belows: ->"
-                            + reference.getElement().getText() // 引用内容
+//            LogUtil.log("\t reference as belows: ->"
+//                            + reference.getElement().getText() // 引用内容
 //                            + " \n" + reference.getElement().getParent().getText()
-                            + " \n" + reference.getElement().getParent().getParent().getText()
+//                            + " \n" + reference.getElement().getParent().getParent().getText() // 引用内容的上一级代码块
 //                            + " \n" + reference.getElement().getParent().getParent().getParent().getText()
 //                    + " " + reference.resolve().getParent().getText()
 //                    + " " + reference.resolve().getText() // 定义的内容
@@ -108,7 +108,7 @@ public class ParseAllFile {
 //                    + " " + reference.toString()
 //                    + " " + reference.isSoft()
 //                    + " " + reference.getVariants().length
-            );
+//            );
             PsiElement parent = reference.getElement().getParent().getParent();
 
             psiElements.add(parent);
