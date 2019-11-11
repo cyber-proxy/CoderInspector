@@ -11,4 +11,14 @@ public class LogUtil {
         Logger.getInstance("CoderInspector:::::::::::::::::::::").info(log);
         System.out.println(log);
     }
+
+    public static void e(String log){
+        Logger.getInstance("CoderInspector:::::::::::::::::::::").error(log);
+        System.out.println(log);
+    }
+
+    public static void warm(String log){
+        Logger.getInstance("CoderInspector:::::::::::::::::::::").warn(log);
+        System.out.println(log);
+    }
 }

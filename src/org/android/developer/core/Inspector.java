@@ -2,11 +2,9 @@ package org.android.developer.core;
 
 import com.intellij.codeInsight.completion.AllClassesGetter;
 import com.intellij.codeInsight.completion.PlainPrefixMatcher;
+import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiField;
-import com.intellij.psi.PsiFile;
+import com.intellij.psi.*;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.refactoring.inheritanceToDelegation.usageInfo.ObjectUpcastedUsageInfo;
 import com.intellij.usageView.UsageInfo;
@@ -24,6 +22,7 @@ import java.util.Objects;
  * @author LC
  * @des
  * @Reference https://blog.csdn.net/nanjizhiyin/article/details/89452297
+ * @Reference https://www.jetbrains.org/intellij/sdk/docs/basics/architectural_overview/modifying_psi.html 修改源代码。
  */
 public class Inspector {
     List<PsiField> fields = new ArrayList<>();
@@ -32,13 +31,19 @@ public class Inspector {
 
     public void execute(PsiFile psiFile, Project prj) {
         fields.addAll(ParseAllFile.gerVariablesList(psiFile));
+        PsiElementFactory psiElementFactory = JavaPsiFacade.getInstance(prj).getElementFactory();
         for (PsiField psiField : fields) {
-            LogUtil.log("getReference for :" + psiField.getText());
-
             List<PsiElement> list = ParseAllFile.findUsage(psiField, prj);
             for (PsiElement psiElement : list){
-                if (!psiElement.getText().startsWith(mDecryptFunction)){
-                    LogUtil.log("found errors: " + psiElement.getc());
+                if (!psiElement.getParent().getParent().getText().startsWith(mDecryptFunction)){
+                    LogUtil.e("found errors: " + psiElement.getContainingFile().getName());
+                    PsiElement psiElementNew = psiElementFactory.createExpressionFromText(mDecryptFunction + "(" + psiElement.getText() + ")", psiElement);
+                    WriteCommandAction.runWriteCommandAction(prj, new Runnable() {
+                        @Override
+                        public void run() {
+                            psiElement.replace(psiElementNew);
+                        }
+                    });
                 }
             }
         }

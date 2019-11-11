@@ -8,12 +8,15 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import java.io.CharArrayReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.util.List;
 
 /**
  * @author LC
  * @des
  */
 public class CommonUtil {
+
+    private List<DefaultMutableTreeNode> ifNode;
 
     /**
      * 获取一个类的包信息
