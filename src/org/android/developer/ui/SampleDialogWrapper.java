@@ -25,8 +25,8 @@ public class SampleDialogWrapper extends DialogWrapper {
         this.psiFile = psiFile;
         init();
         setTitle("代码检测");
-        setSize(500, 100);
-        setResizable(false);
+        setSize(500, 300);
+        setResizable(true);
         setAutoAdjustable(false);
         setOKButtonText("开始检测");
         setCancelButtonText("取消");

@@ -5,12 +5,15 @@
   <vendor email="LC@developer.com" url="http://www.developer.com">developer</vendor>
 
   <description>
-    1、 检测加密文本是否在使用的地方解密；2、检测format调用的地方是否存在崩溃的风险。3、检测代码编写是否符合规范。
-    4、在代码中必须要解密的字符串的定义，需要以decrypt_以前缀命名。
+    1、 检测加密文本是否在使用的地方解密；
+    2、检测format调用的地方是否存在崩溃的风险(待实现)。
+    3、检测代码编写是否符合规范(带实现)。
+    5、混淆和打乱代码结构（带实现）。
   </description>
 
   <change-notes>
-    1、 检测加密文本是否在使用的地方解密；2、检测format调用的地方是否存在崩溃的风险。3、检测代码编写是否符合规范。
+    1、 检测加密文本是否在使用的地方解密；
+    2、如果发现没有解密，则修改以进行解密。
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->

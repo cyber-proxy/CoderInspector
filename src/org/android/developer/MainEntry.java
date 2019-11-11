@@ -31,18 +31,18 @@ public class MainEntry extends AnAction {
         Project prj = anActionEvent.getData(DataKeys.PROJECT);
         new SampleDialogWrapper(psiFile, prj).showAndGet();
 //
-        System.out.println("" + psiFile);
-        PsiElement psiElement = PsiFileUtils.getPsiElementByEditor(editor, psiFile);
-        if (editor != null && psiFile != null && psiElement != null) {
-            String name = String.format("%s.xml", psiElement.getText());
-            LogUtil.log("actionPerformed ->" + name);
-            PsiFile rootXmlFile = PsiFileUtils.getFileByName(psiElement, name);
-            if (rootXmlFile != null) {
-                ArrayList<ResIdBean> resIdBeans = new ArrayList<>();
-                PsiFileUtils.getResIdBeans(rootXmlFile, resIdBeans);
-                PsiClass psiClass = PsiFileUtils.getClassByClassFile(psiFile);
-                new ClassDataWriter(psiFile, resIdBeans, psiClass).execute();
-            }
-        }
+//        System.out.println("" + psiFile);
+//        PsiElement psiElement = PsiFileUtils.getPsiElementByEditor(editor, psiFile);
+//        if (editor != null && psiFile != null && psiElement != null) {
+//            String name = String.format("%s.xml", psiElement.getText());
+//            LogUtil.log("actionPerformed ->" + name);
+//            PsiFile rootXmlFile = PsiFileUtils.getFileByName(psiElement, name);
+//            if (rootXmlFile != null) {
+//                ArrayList<ResIdBean> resIdBeans = new ArrayList<>();
+//                PsiFileUtils.getResIdBeans(rootXmlFile, resIdBeans);
+//                PsiClass psiClass = PsiFileUtils.getClassByClassFile(psiFile);
+//                new ClassDataWriter(psiFile, resIdBeans, psiClass).execute();
+//            }
+//        }
     }
 }
