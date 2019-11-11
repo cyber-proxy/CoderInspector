@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>org.android.developer.coder.inspector.plugin.id</id>
   <name>Coder Inspector For Inner</name>
-  <version>1.0</version>
+  <version>2.0</version>
   <vendor email="LC@developer.com" url="http://www.developer.com">developer</vendor>
 
   <description>
@@ -12,8 +12,11 @@
   </description>
 
   <change-notes>
-    1、 检测加密文本是否在使用的地方解密；
+    v1.0
+    1、检测加密文本是否在使用的地方解密；
     2、如果发现没有解密，则修改以进行解密。
+    v2.0
+    1、支持对当前文件的常量静态字符串生成加密字符。
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
