@@ -36,8 +36,7 @@ public class SampleDialogWrapper extends DialogWrapper {
     @Override
     protected void doOKAction() {
         super.doOKAction();
-        Inspector.mDecryptFunction = mInputField.getText();
-        new Inspector().execute(psiFile, prj);
+        new Inspector().execute(psiFile, prj, mInputField.getText());
     }
 
     @Nullable
@@ -47,7 +46,7 @@ public class SampleDialogWrapper extends DialogWrapper {
 
         mInputField = new JTextField("Security.decrypt");
 
-        dialogPanel.add(new JLabel("请输入:"));
+        dialogPanel.add(new JLabel("请输入解密函数名:"));
         dialogPanel.add(mInputField);
         return dialogPanel;
     }

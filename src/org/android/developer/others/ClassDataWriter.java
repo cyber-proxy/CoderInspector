@@ -5,6 +5,7 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.search.GlobalSearchScope;
+import org.android.developer.ui.NotifyUtils;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;

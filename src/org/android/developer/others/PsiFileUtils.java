@@ -14,6 +14,7 @@ import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.PsiShortNamesCache;
 import com.intellij.psi.xml.XmlAttribute;
 import com.intellij.psi.xml.XmlTag;
+import org.android.developer.ui.NotifyUtils;
 import org.android.developer.util.LogUtil;
 
 import java.util.ArrayList;

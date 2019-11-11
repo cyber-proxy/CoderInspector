@@ -6,17 +6,14 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.search.GlobalSearchScope;
-import com.intellij.refactoring.inheritanceToDelegation.usageInfo.ObjectUpcastedUsageInfo;
 import com.intellij.usageView.UsageInfo;
 import com.intellij.util.Processor;
-import org.android.developer.others.NotifyUtils;
+import org.android.developer.ui.NotifyUtils;
 import org.android.developer.util.LogUtil;
 import org.android.developer.util.ParseAllFile;
-import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author LC
@@ -26,18 +23,16 @@ import java.util.Objects;
  */
 public class Inspector {
     List<PsiField> fields = new ArrayList<>();
-    List<UsageInfo> usageInfoList = new ArrayList<>();
-    public static String mDecryptFunction;
 
-    public void execute(PsiFile psiFile, Project prj) {
+    public void execute(PsiFile psiFile, Project prj, String decryptFunName) {
         fields.addAll(ParseAllFile.gerVariablesList(psiFile));
         PsiElementFactory psiElementFactory = JavaPsiFacade.getInstance(prj).getElementFactory();
         for (PsiField psiField : fields) {
             List<PsiElement> list = ParseAllFile.findUsage(psiField, prj);
             for (PsiElement psiElement : list){
-                if (!psiElement.getParent().getParent().getText().startsWith(mDecryptFunction)){
+                if (!psiElement.getParent().getParent().getText().startsWith(decryptFunName) && !psiElement.getParent().getText().contains("import")){
                     LogUtil.e("found errors: " + psiElement.getContainingFile().getName());
-                    PsiElement psiElementNew = psiElementFactory.createExpressionFromText(mDecryptFunction + "(" + psiElement.getText() + ")", psiElement);
+                    PsiElement psiElementNew = psiElementFactory.createExpressionFromText(decryptFunName + "(" + psiElement.getText() + ")", psiElement);
                     WriteCommandAction.runWriteCommandAction(prj, new Runnable() {
                         @Override
                         public void run() {
@@ -47,6 +42,7 @@ public class Inspector {
                 }
             }
         }
+        NotifyUtils.showInfo(prj, "检查完毕，请commit一下，查看已经修改的内容，（详情请打开Help->show log in explorer->idea.log文件查看日志。");
     }
 
     /**

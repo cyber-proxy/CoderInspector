@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * @author LC
- * @des
+ * @des 此处是代码入口
  */
 public class MainEntry extends AnAction {
 
