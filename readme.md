@@ -12,3 +12,6 @@
  format错误，会导致程序崩溃，且错我不容易被发现。
  * 检测翻译错误
  * 检测代码里面的format格式错误
+## 资料
+# [github资料](https://github.com/JetBrains/intellij-sdk-docs)
+# [官方文档](http://www.jetbrains.org/intellij/sdk/docs/tutorials/tree_structure_view.html)

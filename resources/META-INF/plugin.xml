@@ -1,6 +1,6 @@
 <idea-plugin>
   <id>org.android.developer.coder.inspector.plugin.id</id>
-  <name>Coder Inspector For Inner</name>
+  <name>Code Inspector For Inner</name>
   <version>2.0</version>
   <vendor email="LC@developer.com" url="http://www.developer.com">developer</vendor>
 
@@ -17,6 +17,8 @@
     2、如果发现没有解密，则修改以进行解密。
     v2.0
     1、支持对当前文件的常量静态字符串生成加密字符。
+    v3.0
+    1、支持代码混淆。
   </change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
